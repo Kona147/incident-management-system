@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<a href="{{ url_for('create') }}">+ Create New Incident</a>
+<table border="1" cellpadding="5">
+  <tr><th>ID</th><th>Title</th><th>Description</th><th>Status</th><th>Action</th></tr>
+  {% for inc in incidents %}
+  <tr>
+    <td>{{ inc[0] }}</td>
+    <td>{{ inc[1] }}</td>
+    <td>{{ inc[2] }}</td>
+    <td>{{ inc[3] }}</td>
+    <td><a href="{{ url_for('update', id=inc[0]) }}">Update</a></td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
